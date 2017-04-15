@@ -6,8 +6,9 @@
 #
 aniso8601==1.2.0          # via flask-restful
 appnope==0.1.0            # via ipython
-click==6.7                # via flask
+click==6.7                # via flask, pip-tools
 decorator==4.0.11         # via ipython, traitlets
+first==2.0.1              # via pip-tools
 flake8==3.3.0
 flask-restful==0.3.5
 flask==0.12.1
@@ -21,6 +22,7 @@ markupsafe==1.0           # via jinja2
 mccabe==0.6.1             # via flake8
 pexpect==4.2.1            # via ipython
 pickleshare==0.7.4        # via ipython
+pip-tools==1.9.0
 prompt-toolkit==1.0.14    # via ipython
 ptyprocess==0.5.1         # via pexpect
 py==1.4.33                # via pytest
@@ -31,7 +33,7 @@ pytest==3.0.7
 python-dateutil==2.6.0    # via aniso8601
 pytz==2017.2              # via flask-restful
 simplegeneric==0.8.1      # via ipython
-six==1.10.0               # via flask-restful, prompt-toolkit, python-dateutil, traitlets
+six==1.10.0               # via flask-restful, pip-tools, prompt-toolkit, python-dateutil, traitlets
 traitlets==4.3.2          # via ipython
 wcwidth==0.1.7            # via prompt-toolkit
 werkzeug==0.12.1          # via flask
