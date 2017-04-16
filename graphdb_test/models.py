@@ -30,13 +30,16 @@ class User:
 
     @staticmethod
     def populate_with_random_data(range_num=100):
+    @staticmethod
+    def populate_with_random_data(range_min=1, range_max=100):
         """ Populate database with a defined number of random users """
         query = '''
         WITH {names} AS names_list
-        FOREACH (r IN range(1,{range_num}) |
+        FOREACH (r IN range({range_min},{range_max}) |
             CREATE (:User {id:r,
                     username:names_list[toInt(size(names_list)*rand())] + r
                     }));
         '''
 
-        return graph.run(query, names=NAMES, range_num=range_num)
+        return graph.run(
+            query, names=NAMES, range_min=range_min, range_max=range_max)
