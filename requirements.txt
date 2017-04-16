@@ -11,6 +11,7 @@ flask==0.12.1
 itsdangerous==0.24        # via flask
 jinja2==2.9.6             # via flask
 markupsafe==1.0           # via jinja2
+py2neo==3.1.2
 python-dateutil==2.6.0    # via aniso8601
 pytz==2017.2              # via flask-restful
 six==1.10.0               # via flask-restful, python-dateutil
