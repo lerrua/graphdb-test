@@ -13,8 +13,11 @@ NAMES = ["anna", "andrew", "tom", "leroy", "stenli", "jeff", "jack", "karol"]
 
 class User:
 
-    def find(self, id):
-        user = graph.find_one('User', 'id', id)
+    def __init__(self, id):
+        self.id = id
+
+    def get(self):
+        user = graph.find_one('User', 'id', self.id)
         return user
 
     def get_similar_users_by_degree(self, id):
