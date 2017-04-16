@@ -27,7 +27,7 @@ class User:
 
     @staticmethod
     def populate_with_random_data(range_num=100):
-        """ Populate database with 2 millions random users """
+        """ Populate database with a defined number of random users """
         query = '''
         WITH {names} AS names_list
         FOREACH (r IN range(1,{range_num}) |
