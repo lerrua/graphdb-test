@@ -25,11 +25,29 @@ class User:
         particular user id """
         pass
 
-    def connect(self, id1, id2):
+    def connect(self, target_id):
         pass
 
     @staticmethod
-    def populate_with_random_data(range_num=100):
+    def create_index():
+        """ Create index for User.id """
+        query = 'CREATE INDEX ON :User(id)'
+        return graph.run(query)
+
+    @staticmethod
+    def create_random_connections():
+        """
+        Populate actual database with random connections between users
+        """
+        query = '''
+        MATCH (u:User), (s:User)
+        WITH u, s
+        LIMIT 100000
+        WHERE rand() < 0.5
+        CREATE (u)-[:CONNECTED]->(s);
+        '''
+        return graph.run(query)
+
     @staticmethod
     def populate_with_random_data(range_min=1, range_max=100):
         """ Populate database with a defined number of random users """
