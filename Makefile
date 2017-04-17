@@ -4,4 +4,4 @@ pip-compile:
 	pip-compile --output-file dev-requirements.txt requirements/dev.in
 
 flake8:
-	flake8 . --ignore=E501
+	flake8 .
