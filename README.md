@@ -40,7 +40,7 @@ User.create_index()
 User.create_random_connections()
 ```
 
-#### Running aplication
+#### Running application
 
 ```
 python api.py
