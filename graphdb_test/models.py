@@ -42,9 +42,9 @@ class User:
         query = '''
         MATCH (u:User), (s:User)
         WITH u, s
-        LIMIT 100000
-        WHERE rand() < 0.5
-        CREATE (u)-[:CONNECTED]->(s);
+        LIMIT 10000
+        WHERE rand() < 0.2
+        MERGE (u)-[:CONNECTED]->(s);
         '''
         return graph.run(query)
 
