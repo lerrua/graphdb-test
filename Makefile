@@ -5,9 +5,3 @@ pip-compile:
 
 flake8:
 	flake8 . --ignore=E501
-
-clean:
-	find -regex '.*\.pyc' -exec rm {} \;
-	find -regex '.*~' -exec rm {} \;
-	rm -rf reg-settings.py
-	rm -rf MANIFEST dist build *.egg-info
