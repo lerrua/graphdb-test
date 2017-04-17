@@ -1,5 +1,5 @@
 import os
-from py2neo import Graph, Node, Relationship
+from py2neo import Graph
 
 
 host = os.environ.get('NEO4J_HOST')
@@ -17,16 +17,30 @@ class User:
         self.id = id
 
     def get(self):
-        user = graph.find_one('User', 'id', self.id)
-        return user
+        """
+        Returns a list of user ids of 2nd/3rd degree connections for a
+        particular user id
+        """
 
-    def get_similar_users_by_degree(self, id):
-        """ Returns a list of user ids of 2nd/3rd degree connections for a
-        particular user id """
-        pass
+        query = '''
+        MATCH p=(u:User)-[:CONNECTED*0..3]-(uu:User)
+        WHERE u.id = {id}
+        RETURN u as user, collect(uu.id) as ids, count(uu) as total
+        LIMIT 5000
+        '''
+        response = graph.run(query, id=self.id)
+        return response.data()
 
-    def connect(self, target_id):
-        pass
+    def connections_between(self, target_id):
+        """
+        Returns a boolean with result of existence of relationship
+        between id and target_id
+        """
+        response = self.get()
+        if response:
+            if int(target_id) in response[0]['ids']:
+                return True
+        return False
 
     @staticmethod
     def create_index():
