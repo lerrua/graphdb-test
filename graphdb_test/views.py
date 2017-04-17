@@ -14,4 +14,4 @@ class ConnectionView(Resource):
 
     def get(self, user_id, target_id):
         """ Check if user id has connections with another user id """
-        return User(id=int(user_id)).connections_between(target_id)
+        return User(id=user_id).connections_between(target_id)
