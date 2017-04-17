@@ -1,6 +1,8 @@
 # Graph test
 
-## Instalation
+Test application with Neo4J
+
+## Installation
 
 ### Dependencies
 
