@@ -47,6 +47,11 @@ Make sure if Neo4J is running and then
 python app.py
 ```
 
+Also running tests with pytest command
+```
+pytest
+```
+
 
 ### Available endpoints
 
