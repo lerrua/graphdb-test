@@ -44,7 +44,7 @@ User.create_random_connections()
 
 Make sure if Neo4J is running and then
 ```
-python api.py
+python app.py
 ```
 
 
